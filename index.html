@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>For companies</title>
+
+    <style>
+    body {
+  
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        position: relative;
+    
+       
+    }
+
+    .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:  20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    }
+
+    
+    .nav {
+        display: flex;
+        gap: 40px;
+        position: fixed;
+    }
+
+    .nav a {
+        text-decoration: none;
+        color: #000;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 10px 15px;
+        position: relative;
+    }
+
+    .nav a:hover::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(45deg,rgb(28, 212, 212) , rgb(95, 95, 243));
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+
+    .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: rgb(77, 74, 74);
+        width: 1478px;
+        height: 500px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: none;
+        flex-direction: row;
+       
+        z-index: 1;
+        padding: 20px;
+        justify-content: space-between;
+    }
+
+    .nav-item:hover .dropdown {
+        display: flex;
+    }
+
+    .dropdown .know {
+        background-color:rgb(92, 90, 90); 
+        color: white;
+    
+        padding: 10px;
+        border-radius: 10px;
+       
+        width:800px;
+        height: 200px;
+        box-sizing: border-box;
+        text-align: center;
+        transition: transform 0.3s, background-color 0.3s;
+        position: relative;
+        margin: 10px;
+    }
+    .dropdown .know:hover{
+        background: linear-gradient(45deg,rgb(4, 124, 124), rgb(1, 1, 53) );
+        border: 1px solid lightgray;
+        box-shadow: 0 2px 4px rgba(148, 146, 146, 0.1);
+    }
+
+    .just {
+        display: flex;
+        justify-content: space-between;
+         align-items: center;
+         height: 100vh;
+         margin: 0;
+         background-color: rgb(1, 1, 22);
+         color: white;
+         font-family: Arial, sans-serif;
+        
+        }
+            
+
+        .content {
+            max-width: 50%;
+            padding: 40px;
+            
+        }
+
+        .content h1 {
+            font-size: 3em;
+            line-height: 1.2em;
+            color: #34ebba;
+
+
+        }
+
+        .content p {
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            color: white;
+
+        }
+
+        .content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .content ul li {
+            margin: 10px 0;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            color: white;
+
+        }
+
+        .content ul li::before {
+            content: "✔️";
+            margin-right: 10px;
+            color: #34ebba;
+        }
+
+        .content button {
+            background-color: #34ebba;
+            color: #0d1117;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .marquee {
+            display:flex ;
+            flex-direction: column;
+            overflow:hidden ;
+            height: 100vh;
+            width: 250px;
+        }
+
+        .marquee img {
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        @keyframes scroll-up {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+        @keyframes scroll-down {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+
+        .marquee.up {
+            animation: scroll-up 10s linear infinite;
+        }
+
+        .marquee.down {
+            animation: scroll-down 10s linear infinite;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .feature {
+            text-align: center;
+            max-width: 200px;
+        }
+        .feature img {
+            width: 50px;
+            height: 50px;
+        }
+        .feature h3 {
+            margin: 10px 0;
+            font-size: 20px;
+            color: white;
+        }
+        .feature p {
+            font-size: 14px;
+            color: white;
+        }
+
+        * {
+  box-sizing: border-box;
+}
+.box{
+  float: left;
+}
+
+.slider {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            
+        }
+        .slides {
+            display: flex;
+            animation: slide 20s infinite linear;
+        }
+        .slides img {
+            width: 10%;
+            margin: 0 30px;
+          
+        }
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .container {
+    display:flex ;
+    align-items: center;
+    padding: 20px;
+}
+
+.video-section {
+    position: relative;
+    flex: 1;
+}
+
+.video-thumbnail {
+    position: relative;
+    display: inline-block;
+}
+
+.video-thumbnail img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.text-section {
+    flex: 2;
+    padding-left: 20px;
+    margin-left: 50px;
+}
+
+.text-section h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.text-section p {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.text-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.text-section ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.text-section ul li:before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: #00aaff;
+}
+ 
+/* Box styles */
+.min {
+        color: white;
+        background-color: rgb(14, 161, 161);
+        font-size: 20px;
+        width: 95%;
+        padding: 15px;
+        border-radius: 15px;
+        margin-left: 90px;
+    }
+
+    /* Hover effects */
+    .min:hover {
+        background: linear-gradient(45deg,rgb(28, 212, 212) , rgb(95, 95, 243));
+        
+    }
+
+    .features {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .faraway {
+            text-align: center;
+            max-width: 200px;
+        }
+        .faraway img {
+            width: 50px;
+            height: 50px;
+        }
+        .faraway h3 {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+        .faraway p {
+            font-size: 14px;
+            color:black;
+        }
+
+        .contain {
+            text-align: center;
+            padding: 50px;
+        }
+        .contain h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .contain p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #bbb;
+        }
+        .cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .card {
+            background-color:black;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 15px;
+            width: 390px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+    
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 20px;
+            background-color: white;
+        }
+        .card-content h3 {
+            font-size: 18px;
+            margin: 0 0 10px;
+            color: white;
+        }
+        .card-content p {
+            font-size: 14px;
+            color: #bbb;
+            margin: 0 0 10px;
+        }
+        .card-content a {
+            text-decoration: none;
+            color: #1abc9c;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .card-content a:hover {
+            color: #16a085;
+        }
+
+
+        .faq-container {
+            width: 80%;
+            margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .faq-column {
+            width: 48%;
+        }
+        .faq {
+            cursor: pointer;
+            padding: 15px;
+            border-bottom: 1px solid #ccc;
+            background:;
+        }
+        .faq h3 {
+            margin: 0;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            padding: 15px;
+            display: none;
+    
+        }
+        .faq.active .faq-answer {
+            display: block;
+        }
+
+       
+footer {
+    padding: 50px;
+    background-color: #000;
+    color: #fff;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-section {
+    flex: 1;
+    max-width: 300px;
+}
+
+.logo {
+    width: 150px;
+}
+
+.social-media-icons a img {
+    width: 30px;
+    margin-right: 10px;
+    
+}
+
+.help-section h3 {
+    margin: 20px 0 10px;
+}
+
+.help-section p {
+    margin: 0 0 10px;
+}
+
+.help-section a {
+    color: #00d8a1;
+    text-decoration: none;
+}
+
+.right-section {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+}
+
+.button-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #00d8a1;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+}
+
+.links-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.links-section .column a {
+    display: block;
+    color: #fff;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.popular-jobs h3 {
+    margin-bottom: 20px;
+}
+
+.job-columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.job-column a {
+    display: block;
+    color: #fff;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    border-top: 1px solid #555;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.footer-bottom div {
+    margin-right: 20px;
+}
+
+.footer-bottom a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+
+.cont {
+  position: relative;
+  font-family: Arial;
+}
+
+.text-block {
+  position: absolute;
+  bottom: 90px;
+  color: white;
+  font-size: 35px;
+  padding-left: 0px;
+  padding-right: 20px;
+  margin-left: 30px;
+ 
+}
+
+/* Tablets and smaller screens */
+@media (max-width: 768px) {
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+    .gallery img {
+        width: 80%;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    .gallery img {
+        width: 100%;
+    }
+}
+
+</style>
+</head>
+<body>
+    <div class="header">
+       
+        <div class="nav">
+             <img src="https://www.crossover.com/assets/img/crossover-logo.svg" style="width: 15%;">
+           
+            <div class="nav-item" style="margin-top: 10px;">
+                <a href="#">About</a>
+                <div class="dropdown">
+                    <div class="know">
+                       
+                        <h2 >What is Crossover? </h2>
+                        <p>Crossover helps the world's most talented<br> professionals qualify for elite remote jobs.<br> Here's everything you need to know about......</p>
+                    
+                        <br><br><br><br>
+                        
+                        <div class="know" style="width: 100%;">
+                            <h2>REVIEWS                            </h2>
+                            <p>Hear directly from some of the 5,000+ rockstars who have found a rewarding career through Crossover.
+    
+    
+                            </p>
+                            
+                    </div>
+                    
+                    </div>
+                    
+                    <div class="know">
+                        
+                        <h2>Companies Hiring</h2>
+                        <p>Some of the 70+ companies that use Crossover to recruit global talent for high-paying remote positions.                        </p>
+                        
+                        
+                    </div>
+                    <div class="box large-box" style="background-color:rgb(77, 74, 74);">
+                        <div class="cont">
+                            <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/8ebf9abd-58cb-4913-a03c-30ce9fe9f04b/xo-About-us.jpg?w=870&h=500&fit=clip" style="width: 685px; height: 400px; border-radius: 10px;">
+                            <div class="text-block">
+    
+                            
+                                  <p>The world's largest <br>database of skille<br>s remote talent</p>
+                                </div>
+                              </div>                        
+                    </div>
+                </div>
+            </div>
+    
+    
+            <div class="nav-item" style="margin-top: 10px;">
+                <a href="#">For Jobseekers</a>
+                <div class="dropdown">
+                    <div class="know">
+                        <h2 >Remote Jobs</h2>
+                        <p>Think you've got what it takes to qualify for the best-paying remote jobs in the world?
+    
+    
+                        </p>
+    
+                         
+    
+                        <br><br><br><br><br>
+               
+                        <div class="know" style="width: 100%;">
+                        
+                        <h2>Selection Process  </h2>
+                        <p>Applying for a role? Here’s what to expect. </p>
+                        </div>
+                    </div>
+                    
+                    <div class="know">
+                       
+                        <h2 >Blog</h2>
+                        <p>A collection of articles with expert tips and tricks to help you stay ahead of the curve on all things remote work.                        </p>
+                        
+    
+                        <br><br><br><br>
+                     <div class="know" style="width: 100%;">
+                        <h2 >Explore Job Roles</h2>
+                        <p>Find a full-time remote job matching your skillset.
+                        </p>
+    
+                        </div>
+                    </div>
+                    <div class="box large-box" style="background-color:rgb(77, 74, 74);">
+                        <div class="cont">
+                            <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/32f13f6e-78a1-4b7d-96fe-859472f21589/xo-for-jobseekers.jpg?w=870&h=500&fit=clip" style="width: 685px; height: 380px; border-radius: 10px;">
+
+                            <div class="text-block">
+    <p>The world's best<br> remote full-time jobs</p>
+                            
+                                </div>
+                              </div>                        
+                    </div>
+                </div>
+            </div>
+            
+    
+            <div class="nav-item" style="margin-top: 10px;">
+                <a href="#">For Companies</a>
+                <div class="dropdown">
+                    <div class="know">
+                        
+                        <h2>How to Hire Global Talent                        </h2>
+                        <p>Need a smarter way to shortlist global contractors? We’ve spent 10 years perfecting a process that eliminates barriers, guarantees outstanding matches, and saves you time-to-fill.
+    
+                        </p>
+    <br><br><br>
+                       <div class="know" style="width: 100%;">
+                        <h2 >How to Manage Distributed Teams</h2>
+                        <p>Streamline everything from contracts and payroll to productivity management.
+    
+                        </p>
+                        </div>
+                    </div>
+                     
+                    <div class="know">
+                      
+                        <h2 >Hire Remote Software Developers</h2>
+                        <p>Find and hire the top 1% of remote software developers in the world through Crossover. Tap into a global talent pool of 7 million......</p>
+                        
+                        <br><br><br>
+    
+                        <div class="know" style="width: 100%;">
+                            <h2 >Hire on Crossover                  </h2>
+                            <p>Forget average. Use our AI-powered smart filters to tap into the world's largest database of extraordinary remote talent.
+                            </p>
+                            </div>
+                           </div>
+                    
+                    <div class="box large-box" style="background-color: rgb(77, 74, 74);;">
+                        <div class="cont">
+                            <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/ae321fbb-330b-4889-9e1e-ec2ca529e688/xo-for-candidates.jpg?w=870&h=500&fit=clip" style="width: 685px; height: 380px; border-radius: 10px;">
+
+                            <div class="text-block">
+<p>Get the world's best<br> talent on your team, in<br> 5 mins a day</p>                            
+                                </div>
+                              </div>                        
+                    </div>
+                 </div>
+                </div>
+    
+            <a href="cro Reviews.html">Reviews</a>
+            <a href="cros Blog.html">Blog</a>
+           </div>
+       <a href="#"><i class="fa-solid fa-magnifying-glass" style="float: left; font-size: 20px;"></i></a>
+    </div>
+     <div class="just">
+    <div class="content">
+        <h1>Hire smarter, <br>not harder.</h1>
+        <p>The most important task of a leader is recruiting the right team, but<br> most recruiters will tell you to increase your budget or lower your<br> standards. <b>We invented a better way.</b></p>
+        <ul>
+            <li>Find world-class people in overlooked places—within budget</li>
+            <li>Easy AI-powered shortlisting reduces time-to-fill by 80%</li>
+            <li>Silicon Valley-grade skill vetting and guaranteed productivity</li>
+        </ul>
+        <p style="color: white;">Stop compromising.        </p>
+        <button>START RISK-FREE TRIAL</button>
+    </div>
+    <div class="marquee up">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoBVTBBxLdp4jfYwNrrEFBoA9agC1COQazYak-mXgxqD5jOrLhjM7aViGGKqco0nSUMMA&usqp=CAU" alt="Image 1">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKuM1cK21Nh0OKENXcrPkWBnwBxxsy3q7ldFR8eT4GvnDX7ZhuYjI48ksJfkAEVO8QLMk&usqp=CAU" alt="Image 2">
+        <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/bd422b9f-ef3f-4d4a-9228-bd183a0f788d/Hompage-xo-malin.jpg?w=1200&h=700&fit=clip" alt="Image 3">
+    </div>
+    <div class="marquee down">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkbeicSzJOj6b80X9kjg5wyDUv0mu_GqEmqKQasZeHv2hWqmsH2TvNNPSFAsKIz0B4Lxw&usqp=CAU" alt="Image 4">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCqckqLgke6CSNY8cHvUexIgw7rINEKHct7gUpazFapYuX49l7d5fWA15R5AujUXthFtw&usqp=CAU" alt="Image 5">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQki5lhYSMOW1tNSpCAkqRs35C3bFtfAH1XRgUiHsPyJ63S4UOVPcV-GeOuH80lWRV5feo&usqp=CAU" alt="Image 6">
+    </div>
+</div>
+
+<br><br><br><br>
+<h1 style="text-align: center;">We don’t just find the needle, we remove the haystack. Here’s how.</h1>
+<br><br><br><br>
+
+<div class="features">
+    <div class="faraway">
+        <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/b432b4f2-1fe5-44a2-8b61-43398f04ea39/7-million-users.svg" alt="Icon 1">
+        <h3>7 million users</h3>
+        <p>We've spent a decade building the world's largest database of qualified remote professionals.</p>
+    </div>
+    <div class="faraway">
+        <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/722b7a2d-a8f1-442b-986e-f278cc59fe03/Top-1.svg" alt="Icon 2">
+        <h3>Top 1%</h3>
+        <p>We only shortlist the best 1% in both subject expertise and aptitude. Average doesn't cut it.</p>
+    </div>
+    <div class="faraway">
+        <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/e7828636-c186-4f18-adce-e1396e9512a9/Pre-qualified.svg" alt="Icon 3">
+        <h3>Pre-qualified</h3>
+        <p>Candidates prove core skills & pass stringent vetting—so you can trust them with your company's future.</p>
+    </div>
+    <div class="faraway">
+        <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/8a115731-74ca-4299-9553-098b85943bef/Better-value.svg" alt="Icon 4">
+        <h3>Better value</h3>
+        <p>Overseas experts are just as talented as local ones... and your budget goes further.</p>
+    </div>
+    <div class="faraway">
+        <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/a2ff0d72-cf12-48fd-aea4-fbebf2599685/Fast-easy.svg" alt="Icon 5">
+        <h3>Fast & easy</h3>
+        <p>Spend 5 mins reviewing the best matches, then reclaim your day while we find your unicorn.</p>
+    </div>
+</div>
+
+<br><br><br>
+
+<div class="increase" style="background-color: rgb(32, 1, 32); width: 85%; height: 350px; margin-left: 90px; border-radius: 15px;">
+    <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/acfd50c9-f7c3-4509-9a14-da7ae7203595/Quote.svg" style="width: 7%; margin-left: 50px; margin-top: 20px;">
+    <h1 style="color: rgb(233, 230, 230); margin-left: 50px; font-size: 30px;">Crossover provides quality global talent quickly, requiring minimal effort on <br>our part because their objective vetting process handles the heavy lifting.
+    </h1>
+    
+    <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/200eb93f-d07f-45c5-95f0-17c003945bde/Louis-Takacs-Testimonial.png" style=" width: 22%; border-radius: 15px; float: right;">
+
+    </div>
+
+    <br><br><br><br>
+
+    <div class="clearfix">
+        <div class="box">
+<p style="color: rgb(4, 124, 124); margin-left: 90px;">COMPANIES THAT TRUST CROSSOVER
+</p>
+        </div>
+
+        <div class="box">
+            <a href="#" style="text-decoration: none; margin-left: 800px; color: #000;">   HIRING NOW →</a>
+        </div>
+    </div>
+    <br><br>
+<p style="margin-left: 90px; font-size: 20px;">To find the best person in the world, not the best person in their zipcode.</p>
+<br><br><br><br>
+
+<div class="slider">
+    <div class="slides">
+        <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/647912b0-afb0-4e52-9626-73287d282879/DevGraph-Logo.svg?fm=jpg&auto=format&w=130&h=65&fit=clip" alt="Company Logos 1">
+        <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/bdf0986d-35c6-4c74-a833-32f9f61cc46f/Jigsaw.png?fm=jpg&auto=format&w=130&h=65&fit=clip" alt="Company Logos 2">
+        <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/ad0eefde-e33a-4e4a-8673-b8b5d10c20d5/Totogi.png?fm=jpg&auto=format&w=130&h=65&fit=clip" alt="Company Logos 3">
+        <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/d7102fc7-557c-4d2e-b4ea-7d60e447c2fd/upland-logo.svg?fm=jpg&auto=format&w=130&h=65&fit=clip" alt="Company Logos 4">
+        <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/8311b27a-8d55-46a8-ae4f-fb9ec585472f/Avolin-Logo.svg?fm=jpg&auto=format&w=130&h=65&fit=clip" alt="Company Logos 5">
+        <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/ae4109c2-5a87-49e2-8b4f-4f1b22774fd4/Alpha-Logo.svg?fm=jpg&auto=format&w=130&h=65&fit=clip" alt="Company Logos 1">
+        <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/8b41575e-ae1a-4b9a-9c69-dbd20bdf350c/Ignite.png?fm=jpg&auto=format&w=130&h=65&fit=clip" alt="Company Logos 3">
+        <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/24aa7e7f-51d3-4a02-96f8-5902840a72c6/2b47774e-36eb-40aa-bfdb-32bb074949ed.png?fm=jpg&auto=format&w=130&h=65&fit=clip" alt="Company Logos 4">
+        <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/0b5b26ab-c23b-4aa2-9c4b-03d085fb8e73/Codenation.svg?fm=jpg&auto=format&w=130&h=65&fit=clip" alt="Company Logos 5">
+    </div>
+  </div>
+
+  <br><br><br><br><br><br><br>
+
+  <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/99df1004-68d6-4a31-8559-783f9d12332a/Candidate-Profile-Cards.jpg" style="margin-left: 270px;">
+<br><br><br><br>
+
+<div class="increase" style="background-color: rgb(32, 1, 32); width: 85%; height: 429px; margin-left: 90px; border-radius: 15px;">
+    <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/acfd50c9-f7c3-4509-9a14-da7ae7203595/Quote.svg" style="width: 7%; margin-left: 50px; margin-top: 20px;">
+    <h1 style="color: rgb(233, 230, 230); margin-left: 50px; font-size: 30px;">Building great teams is crucial for managers, but it's challenging. Crossover<br> tames this challenge with world-class experience, tools, and processes<br> to find the best global talent.
+
+    </h1>
+    
+    <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/4321396b-a413-48df-b793-12260a9dffa7/nigel-back-profile-information.png" style=" width: 22%; border-radius: 15px; float: right;">
+
+    </div>
+
+    <br><br><br><br><br>
+
+    <div class="container">
+        <div class="video-section">
+            <div class="video-thumbnail">
+                <iframe width="550px" height="500px" src="https://www.youtube.com/embed/1pG2SlfsPoU" title="How to make your company an Olympic Super Team: Crossover Prime" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="margin-left: 90px; border-radius: 15px;"></iframe>
+                <div class="play-button" onclick="playVideo()">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="text-section">
+            <h1>The next generation of recruitment</h1>
+            <p><strong>Crossover is no fledgling startup.</strong></p>
+            <p>We've spent 10 years solving the biggest problems of old-fashioned hiring methods:</p>
+            <ul>
+                <li>How to <strong>find the best person when you don’t know where they are</strong>, and job ads can only be posted in one city.</li>
+                <li>How to <strong>objectively shortlist 30,000+ applications</strong>, when research shows résumé screening datapoints predict success as accurately as a candidate’s star sign.</li>
+                <li>How to <strong>assess faraway candidates without bias</strong>, when you’ve never heard of their alma mater or workplace.</li>
+                <li>How to <strong>streamline international contracts and payroll</strong>, when even the basics like job titles and communication norms are completely different in every country.</li>
+                <li>How to <strong>eliminate fraudulent behaviour</strong>, from watching cat videos all day to moonlighting five full-time jobs.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function playVideo() {
+            // Add your video play functionality here
+            alert('Play video functionality goes here');
+        }
+    </script>
+
+<br><br><br>
+
+<div class="Olympics" style="background: linear-gradient(45deg,  rgb(18, 18, 19),rgb(70, 3, 70));margin-left: 110px;padding: 35px; height: 130px;width: 83%; border-radius: 15px;">
+
+    <div class="clearfix">
+  <div class="box">
+  <p style="color: white; font-size: 25px;">Cut time-to-fill by 80% with Crossover
+  </p>
+  </div>
+  
+  <div class="box">
+    <div class="min" style="text-align: center; margin-left: 390px; width: 38%;">BOOK A DEMO →</div>
+    </div>
+    </div>
+  </div>
+
+<br><br><br><br><br>
+
+<div class="Olympics" style="background: linear-gradient(45deg,  rgb(70, 3, 70),rgb(70, 3, 70));margin-left: 110px;padding: 15px; height: 520px;width: 83%; border-radius: 15px;">
+
+    
+        <p style="margin-left: 70px; color: rgb(28, 212, 212); margin-top: 60px; font-size: 18px;">HOW IT WORKS      </p>
+      
+      <h1 style="margin-left: 70px; color: white;">Hire the best person in the world, not your zip code.    </h1>
+      <P style="color: white; margin-left: 70px;">Traditional recruitment wastes your time. Here's how we help you skip all the old-school manual steps and hire the perfect candidate by this time<br> next week—without trawling résumés, interviewing duds, or lowering your standards.
+
+    </P>
+    <br><br> 
+  
+    <div class="features">
+        <div class="feature">
+            <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/575cf885-88e7-4219-8a45-0469f1cf541f/You-define-the-role.svg" alt="Icon 1">
+            <h3>1. Describe the role            </h3>
+            <p>Tell us who you're looking for. We specialize in full-time jobs that can be done from any timezone e.g. software engineers, customer support, finance & sales.            </p>
+        </div>
+        <div class="feature">
+            <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/95785b4b-f5d1-4903-807d-6f1a4e7d5c56/We-filter-the-applications.svg" alt="Icon 2">
+            <h3>2. Set smart filters            </h3>
+            <p>Curate the perfect search based on scientifically-proven success factors: from soft skills like problem solving, to hard skills like English or Ruby on Rails.            </p>
+        </div>
+        <div class="feature">
+            <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/480486e6-5fc3-477b-843d-421d5cfe9363/Daily-top-5-in-inbox.svg" alt="Icon 3">
+            <h3>3. Daily shortlist            </h3>
+            <p>Get the top 5 candidates in your inbox daily; pre-qualified and vetted for hard and soft skills. Based on your feedback, the smart filters adjust and optimize for tomorrow.            </p>
+        </div>
+        
+        <div class="feature">
+            <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/ffdcbf93-572a-4d13-a444-520a5743a484/You-interview-and-hire.svg" alt="Icon 5">
+            <h3>4. Interview & hire            </h3>
+            <p>Interview purely for culture fit... then make an offer! Our easy onboarding streamlines everything from contracts and payroll to productivity management.</p>
+        </div>
+    </div>
+    
+       </div>
+  
+  <br><br><br>
+  <div class="in" style="background-color: rgb(51, 3, 51); width: 100%; height: 300px;">
+    <div class="in" style="background-color: rgb(51, 3, 51); width: 100%; height: 950px; border-radius: 25px;">
+  
+  
+        <svg viewBox="100 30 1440 320">
+            <path fill="#ffffff" fill-opacity="1" d="M0,192C48,224,96,256,144,245.3C192,235,240,181,288,160C336,139,384,149,432,170.7C480,192,528,224,576,213.3C624,203,672,149,720,122.7C768,96,816,96,864,106.7C912,117,960,139,1008,133.3C1056,128,1104,96,1152,106.7C1200,117,1248,171,1296,181.3C1344,192,1392,160,1416,144L1440,128L1440,320L1416,320C1392,320,1344,320,1296,320C1248,320,1200,320,1152,320C1104,320,1056,320,1008,320C960,320,912,320,864,320C816,320,768,320,720,320C672,320,624,320,576,320C528,320,480,320,432,320C384,320,336,320,288,320C240,320,192,320,144,320C96,320,48,320,24,320L0,320Z"></path>
+        </svg>
+  <div class="contain">
+    <h1>What kind of unicorn do you need?</h1>
+    <p>Whether you need a CTO or a CSR, our assessment system can be customized to prove aptitude and relevant job skills across a range of verticals.</p>
+    <div class="cards">
+        <div class="card">
+            <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/700ec47b-aa05-4d87-adef-281b0d07dc5a/hire-remote-software-developers-1.jpg?fm=jpg&auto=format&w=500&h=500&fit=clip" alt="Remote Software Developers">
+            <div class="card-content">
+                
+                <a href="#">Remote Software Developers →</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/559155dd-a8d8-4927-b3c7-e0c53a6eca7a/hire-remote-sales-professionals.jpg?fm=jpg&auto=format&w=500&h=500&fit=clip" alt="Remote Software Developers">
+            <div class="card-content">
+                
+                <a href="#">Remote Software Developers →</a>
+            </div>
+        </div>
+
+        
+          
+        <div class="card">
+            <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/9da625f6-2cfc-4450-99b2-177396350b53/og-image-hire-elite-remote-finance-professionals.jpg?fm=jpg&auto=format&w=500&h=500&fit=clip" alt="Remote Customer Support">
+            <div class="card-content">
+                
+                <a href="#">Remote Customer Support →</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <br><br><br><br>
+
+<div class="increase" style="background-color: rgb(32, 1, 32); width: 85%; height: 359px; margin-left: 90px; border-radius: 15px;">
+    <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/acfd50c9-f7c3-4509-9a14-da7ae7203595/Quote.svg" style="width: 7%; margin-left: 50px; margin-top: 20px;">
+    <h1 style="color: rgb(233, 230, 230); margin-left: 50px; font-size: 33px;">All candidates hired through Crossover have been great<br>
+        ...and so was the turnaround time.
+        
+
+    </h1>
+    
+    <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/43ed2a7e-c7f5-40e3-9315-6fbbafb4dd3c/Raghav-Poddar-Co-Founder-CEO-Forward-Kitchens.png" style=" width: 22%; border-radius: 15px; float: right;">
+
+    </div>
+
+    <br><br><br><br><br>
+
+    <h1 style="margin-left: 155px;">How Does Crossover Prime Compare?</h1>
+    <p style="margin-left: 155px; font-size: 20px;">See what makes us the most trustworthy way to hire a remote team.</p>
+
+    <p style="margin-left: 155px; font-size: ;">For 8 years, Crossover’s premium recruitment and vetting services have only been available to large enterprise teams. Now,<br> we’re opening our most popular pipelines to hire pre-vetted rockstars!</p>
+
+<h2 style="margin-left: 155px;">Here’s what you get…</h2>
+<br><br><br>
+<img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/67d6363c-d044-44aa-ba02-46502579a583/Crossover_Prime_Comparison-v3-01.svg" style="width: 65%; margin-left: 250px;">
+
+<br><br><br>
+
+<div class="Olympics" style="background: linear-gradient(45deg,  rgb(18, 18, 19),rgb(70, 3, 70));margin-left: 110px;padding: 35px; height: 130px;width: 83%; border-radius: 15px;">
+
+    <div class="clearfix">
+  <div class="box">
+  <p style="color: white; font-size: 25px;">Ready to crush your hiring goals?
+
+  </p>
+  </div>
+  
+  <div class="box">
+    <div class="min" style="text-align: center; margin-left: 400px; width: 43%;">START RISK-FREE TRIAL →</div>
+    </div>
+    </div>
+  </div>
+
+<br><br><br><br><br>
+
+<div class="in" style="background-color: rgb(51, 3, 51); width: 100%; height: 300px;">
+    <div class="in" style="background-color: rgb(51, 3, 51); width: 100%; height: 950px; border-radius: 25px;">
+  
+  
+        <svg viewBox="200 0 1440 320">
+            <path fill="#ffffff" fill-opacity="1" d="M0,32L60,42.7C120,53,240,75,360,74.7C480,75,600,53,720,58.7C840,64,960,96,1080,122.7C1200,149,1320,171,1380,181.3L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+        </svg>
+  <div class="contain">
+    <h1>Need more details?    </h1>
+    <P>Let's dig a little deeper.    </P>
+    <div class="cards">
+        <div class="card">
+            <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/ac4c9396-1cc0-4ce1-99c1-0993bfd78350/hire-global-talent-2.jpg?fm=jpg&auto=format&w=500&h=500&fit=clip" alt="Remote Software Developers">
+            <div class="card-content">
+                
+                <a href="#">HOW to Hire Global Talent →</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/ab4f87e1-13f0-426c-80a5-f325c85dc191/managed-distributed-teams-2.jpg?fm=jpg&auto=format&w=500&h=500&fit=clip" alt="Remote Software Developers">
+            <div class="card-content">
+                
+                <a href="#">How to Manage Distributed Teams →</a>
+            </div>
+        </div>
+
+        
+          
+        <div class="card">
+            <img src="https://assets-us-01.kc-usercontent.com/7beb5311-75a4-0049-50f5-8f58fd55aba7/8ba1b0eb-ece7-4d98-a99d-01a994f99449/Egoli_Case_Study_Header.jpg?fm=jpg&auto=format&w=500&h=500&fit=clip" alt="Remote Customer Support">
+            <div class="card-content">
+                
+                <a href="#">Egoil Media Case Study →</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <br><br><br><br><br>
+
+    <h1 style="margin-left: 30px;">FAQs            </h1>
+
+    <div class="faq-container">
+        
+        <div class="faq-column">
+            <div class="faq">
+                <h3>What types of jobs can you fill? <span>&#x25BC;</span></h3>
+                <div class="faq-answer">
+                    <p>We connect you with independent contractors in roles like:                    </p>
+                    <ul>
+                        
+                      <li> Software Engineer (Junior/Mid/Senior)</li>
+                       <li>Customer Support Engineer (L1/L2/L3)</li>
+                       <li>Sales Representative (Sales Development/Inside Sales)</li>
+                        <li>Accountant or Finance Associate</li>
+                    </ul>
+
+                    <p>Check back often as our list keeps expanding.                    </p>
+                </div>
+            </div>
+            <div class="faq">
+                <h3>Can you fill roles outside the listed niches? <span>&#x25BC;</span></h3>
+                <div class="faq-answer">
+                    <p>Absolutely! If you don't see the position you have in mind, just chat with our account managers. At Crossover, we create packages that fit your unique needs.</p>
+                </div>
+            </div>
+            <div class="faq">
+                <h3>How can I hire through Crossover? <span>&#x25BC;</span></h3>
+                <div class="faq-answer">
+                   <p> You’ve got two great options:</p>
+
+ <h4>1. Hire a Full-time Independent Contractor with Crossover</h4>
+
+ <p>We tap into our global talent pool of highly vetted independent contractors in your niche. Using AI, we find your perfect match.</p> 
+
+   <p>After interview and selection, we manage the full-time hiring contracts for you so that you don’t have to deal with paperwork.</p>
+
+ <h4>2. Hire Your Own Full-time Employee</h4>
+
+  <p>For our existing clients, you can use our talent pool without the extended Crossover services. </p>
+
+   <p>In this scenario, we’ll introduce you to your perfect match through our AI, and then you can hire them full-time, on your own terms.</p>
+                </div>
+            </div>
+            <div class="faq">
+                <h3>Is Prime suitable for gig work or short-term projects? <span>&#x25BC;</span></h3>
+                <div class="faq-answer">
+                <p>    No, Prime is exclusively for full-time contractors looking for long-term commitments. We’re not a gig or short-term hub.</p> 
+
+      <p>Our aim is to introduce you to the top 1% of contractors in your niche, so that you can add global talent to your ranks for the long haul.</p>
+                </div>
+            </div>
+            <div class="faq">
+                <h3>Who will my company have a contractual relationship with? <span>&#x25BC;</span></h3>
+                <div class="faq-answer">
+                    <p>You’ll enter into a service agreement with Crossover, so that we can oversee the recruitment journey – from search and AI matching to workforce management.</p> 
+
+ <p>You can ask your contractors to sign any additional agreements directly with your company, like NDAs.</p>
+                </div>
+            </div>
+            <div class="faq">
+                <h3>How long does it take to hire with Crossover Prime? <span>&#x25BC;</span></h3>
+                <div class="faq-answer">
+                  <p>  We expect you to be conducting interviews from a golden shortlist within the week. You'll have an offer on the table within the first 1-2 weeks, and 2-4 weeks following that your new team member will begin.</p> 
+
+         <p>It's about speeding up your hiring journey and getting talent to the table – fast.</p>
+                </div>
+            </div>
+        </div>
+        <div class="faq-column">
+            <div class="faq">
+                <h3>Where do your contractors come from? <span>&#x25BC;</span></h3>
+                <div class="faq-answer">
+                   <p> We’ve poured years into perfecting an AI-system that zeroes in on top candidates for tech roles. </p>
+
+ <p>We harness the power of LinkedIn and use localized ads make sure candidates from all over the world are included. No barriers, anyone from anywhere can apply.</p>
+
+   <p>Before making the cut, candidates have to pass a series of tests for cognitive ability, job-specific skills and English proficiency. </p>
+
+ <p>Testing is free, they only invest their time. Those who ace the tests are invited to join our global talent pool.</p>
+                </div>
+            </div>
+            <div class="faq">
+                <h3>How do contract terminations work with Crossover? <span>&#x25BC;</span></h3>
+                <div class="faq-answer">
+                   <p> We champion smooth transitions, so we recommend a 2-week notice period to ensure a positive wrap-up for both sides, and to allow time for replacement plans. </p>
+
+                  <p>  But if the situation demands an immediate end, we accommodate same-day terminations – while always aiming for fairness.</p>
+                </div>
+            </div>
+            <div class="faq">
+                <h3>Who's accountable if a contractor engages in misconduct? <span>&#x25BC;</span></h3>
+                <div class="faq-answer">
+                  <p>  It’s important to clarify that our independent contractors aren’t Crossover employees. We streamline your tech team’s growth by facilitating recruitment and management.</p>
+
+   <p>While we aim for the best matches, mishaps can happen. For any contractor misconduct, the onus is on the individual contractor.</p>
+
+   <p>Crossover doesn’t shoulder liability or responsibility, except in cases arising from our own negligence or wilful misconduct.</p>
+                </div>
+            </div>
+            <div class="faq">
+                <h3>What are Prime credits? <span>&#x25BC;</span></h3>
+                <div class="faq-answer">
+                  <p>  Prime is free for existing clients based on the amount of credits they have with Crossover. </p>
+
+  <p>Credits are calculated on an individual basis and are unique to each client. They depend on other products or services your company is using within our partner network.</p>
+
+    <p>Credits can be exchanged for Prime usage fees, making it free to use. The service fees applied to hired contractors remain intact, but only kick in once you’ve found the ideal match. </p> 
+                </div>
+            </div>
+            <div class="faq">
+                <h3>How do contractors get paid? <span>&#x25BC;</span></h3>
+                <div class="faq-answer">
+                    <p>Simple! Once you find the best candidate, they sign a contract with us. We invoice you for the approved work hours, and manage the weekly contractor payments for you.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.faq').forEach(faq => {
+            faq.addEventListener('click', () => {
+                faq.classList.toggle('active');
+                let span = faq.querySelector('h3 span');
+                span.textContent = faq.classList.contains('active') ? '\u25B2' : '\u25BC';
+            });
+        });
+    </script>
+
+    <br><br><br>
+
+    <div class="Olympics" style="background: linear-gradient(45deg,  rgb(18, 18, 19),rgb(70, 3, 70));margin-left: 110px;padding: 35px; height: 180px;width: 83%; border-radius: 15px;">
+
+        <div class="clearfix">
+      <div class="box">
+      <p style="color: white; font-size: 25px;">Need help with your hiring goals?<br><br>
+      We can help you hire top 1% global talent.   </p>
+      </div>
+      
+      <div class="box">
+        <div class="min" style="text-align: center; margin-left: 400px; width: 33%;">CONTACT US →</div>
+        </div>
+        </div>
+      </div>
+    
+      <br><br><br><br>
+
+      <footer>
+        <div class="footer-content">
+            <div class="left-section">
+                <img src="https://www.crossover.com/assets/img/crossover-logo.svg" alt="Crossover Logo" class="logo">
+                <br><br><br>
+                <div class="social-media-icons">
+              <a href="#" style="text-decoration: none; color: white; "><i class="fab fa-linkedin" style="font-size: 30px; margin: 10px;"></i></a>
+              <a href="#" style="text-decoration: none; color: white; "><i class="fab fa-instagram" style="font-size: 30px;  margin: 10px;"></i></a>
+              <a href="#" style="text-decoration: none; color: white; "><i class="fab fa-twitter" style="font-size: 30px;  margin: 10px;"></i></a>
+              <a href="#" style="text-decoration: none; color: white; "><i class="fab fa-youtube" style="font-size: 30px;  margin: 10px;"></i></a>
+                </div>
+                <div class="help-section">
+                    <h3>We're here to help</h3>
+                    <p>Find answers to common questions or contact us directly.</p>
+                    <a href="#">HELP AND FAQs →</a>
+                </div>
+            </div>
+            <div class="right-section">
+                <div class="button-section">
+                    <a href="#" class="btn">HIRE ON CROSSOVER →</a>
+                    <a href="#" class="btn">GET HIRED ON CROSSOVER →</a>
+                </div>
+                <div class="links-section">
+                    <div class="column">
+                        <a href="#">Companies Hiring</a>
+                        <a href="#">Blog</a>
+                        <a href="#">What is Crossover for Work?</a>
+                    </div>
+                    <div class="column">
+                        <a href="#">Reviews</a>
+                        <a href="#">Selection Process</a>
+                    </div>
+                </div>
+                <div class="popular-jobs">
+                    <h3>Popular Job Roles</h3>
+                    <div class="job-columns">
+                        <div class="job-column">
+                            <a href="#">Remote Account Management Jobs</a>
+                            <a href="#">Remote C++ Developer Jobs</a>
+                            <a href="#">Remote Developer Jobs</a>
+                            <a href="#">Remote Engineering Management Jobs</a>
+                            <a href="#">Remote Full Stack Developer Jobs</a>
+                            <a href="#">Remote Product Design Jobs</a>
+                            <a href="#">Remote Quality Assurance Jobs</a>
+                            <a href="#">Remote Sales Leadership Jobs</a>
+                            <a href="#">Remote Software Engineering Jobs</a>
+                            <a href="#">Remote Web Developer Jobs</a>
+                        </div>
+                        <div class="job-column">
+                            <a href="#">Remote AI Engineer Jobs</a>
+                            <a href="#">Remote Channel Sales Jobs</a>
+                            <a href="#">Remote DevOps Engineer Jobs</a>
+                            <a href="#">Remote Executive Leadership Jobs</a>
+                            <a href="#">Remote Inside Sales Jobs</a>
+                            <a href="#">Remote Product Management Jobs</a>
+                            <a href="#">Remote React JS Developer Jobs</a>
+                            <a href="#">Remote Services Leadership Jobs</a>
+                            <a href="#">Remote Strategy Jobs</a>
+                            <a href="#">Remote Software Engineering Jobs</a>
+                        </div>
+                        <div class="job-column">
+                            <a href="#">Remote Angular Developer Jobs</a>
+                            <a href="#">Remote Customer Success Jobs</a>
+                            <a href="#">Remote Education Jobs</a>
+                            <a href="#">Remote Finance Jobs</a>
+                            <a href="#">Remote Java Developer Jobs</a>
+                            <a href="#">Remote Professional Services Jobs</a>
+                            <a href="#">Remote Computer Programming Jobs</a>
+                            <a href="#">Remote Software Architecture Jobs</a>
+                            <a href="#">Remote Javascript Developer Jobs</a>
+                            <a href="#">Remote Software Developer Jobs</a>
+                        </div>
+                        <div class="job-column">
+                            <a href="#">Remote Back-end Developer Jobs</a>
+                            <a href="#">Remote Customer Support Jobs</a>
+                            <a href="#">Remote Engineering Leadership Jobs</a>
+                            <a href="#">Remote Finance Jobs</a>
+                            <a href="#">Remote Front-end Developer Jobs</a>
+                            <a href="#">Remote PHP Developer Jobs</a>
+                            <a href="#">Remote Python Developer Jobs</a>
+                            <a href="#">Remote Ruby on Rails Developer Jobs</a>
+                            <a href="#">Remote Software Developer Jobs</a>
+                            <a href="#">Remote C# Developer Jobs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>© Crossover, 2024</div>
+            <div>
+                <a href="#">Website Terms</a>
+                <a href="#">Contractor Terms</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Legal</a>
+                <a href="#">Cookies Settings</a>
+            </div>
+            <div><a href="#">TOP ↑</a></div>
+        </div>
+    </footer>
+
+      
+</body>
+</html>
